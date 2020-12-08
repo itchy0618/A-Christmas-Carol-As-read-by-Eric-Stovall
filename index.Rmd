@@ -1,7 +1,8 @@
 ---
 title: 'A Christmas Carol'
-author: 'Eric Stovall'
-date: "`r format(Sys.time(), '%d %B, %Y')`"
+subtitle: 'As read by Eric Stovall'
+# author: 'Eric Stovall'
+# date: "`r format(Sys.time(), '%d %B, %Y')`"
 output: 
   html_document:
     theme: lumen
@@ -38,8 +39,6 @@ all_audio_files <- function(dir = 'audio'){
 ```
 <!-- end set up -->
 
-
-# Audio Files
 
 ```{r, results = 'asis'}
 all_audio_files()
