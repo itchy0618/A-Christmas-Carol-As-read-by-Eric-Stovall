@@ -1,0 +1,46 @@
+---
+title: 'A Christmas Carol'
+author: 'Eric Stovall'
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: 
+  html_document:
+    theme: lumen
+---
+
+<!-- Set Up-->
+```{css, echo = FALSE}
+figure {
+    margin: 0;
+}
+```
+
+```{r, setup, include = FALSE, echo = FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  error = TRUE, 
+  warning = FALSE,
+  message = FALSE)
+
+audio_player <- function(file, dir = 'audio/'){
+  writeLines(sprintf('<figure>
+    <figcaption>%s</figcaption>
+  <audio controls src="%s">
+    Your browser does not support the <code>audio</code> element.
+  </audio>
+</figure>', file, paste0(dir, file)))
+}
+
+all_audio_files <- function(dir = 'audio'){
+  for(x in list.files(dir)){
+    audio_player(x)
+  }
+}
+```
+<!-- end set up -->
+
+
+# Audio Files
+
+```{r, results = 'asis'}
+all_audio_files()
+```
